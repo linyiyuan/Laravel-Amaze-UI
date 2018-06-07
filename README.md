@@ -12,7 +12,7 @@
 	Swoole PHP Extension
 
 ### 安装
-	1.git clone git@git.appgame.com:linyiyuan/community-new.git
+	1.git clone git@github.com:linyiyuan/Laravel-Amaze-UI.git
 	2.composer install
 	3.复制.env.example 到 .env 修改根目录下的.env文件 配置数据库
 	4.将.env 的APP_ENV设置为production
@@ -26,9 +26,9 @@
 ### nginx配置
 	
 	server {
-    listen 8099;
-    server_name web.nba.com;
-    root /Library/WebServer/Documents/community-new/public;
+    listen 8888;
+    server_name web.blog.com;
+    root /Library/WebServer/Documents/Laravel-Amaze-UI/laravel/public;
     index index.php index.html index.htm;
     
 		 location / {
@@ -51,7 +51,7 @@
 		    location ~ \.php$ {
 		        #include snippets/fastcgi-php.conf;
 
-			root /Library/WebServer/Documents/community-new/public;
+			root /Library/WebServer/Documents/Laravel-Amaze-UI/laravel/public;
 		        # With php7.0-cgi alone:
 		        fastcgi_pass 127.0.0.1:9000;
 			proxy_read_timeout 300;
