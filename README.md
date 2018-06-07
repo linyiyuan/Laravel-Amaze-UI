@@ -1,5 +1,9 @@
 # Laravel-Amaze-UI
 
+	该项目基于Laravel 5.5开发，目前只开发了权限认证，登录验证，系统信息，操作日志
+	默认账号：admin@admin.com
+	默认密码：admin@admin.com
+	
 ### 服务器配置拓展
 
 	PHP >= 7.0,支持php7
