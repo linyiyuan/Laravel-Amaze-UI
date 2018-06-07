@@ -119,9 +119,19 @@ class RoleController extends CommonController
 
        $permissions = Permission::all();//查找出所有权限
 
+       $permissionsList = [];
+       foreach ($permissions as $key) {
+          $permissionsList[$key->type] = [];
+       }
+
+       foreach ($permissions as $key ) {
+            $permissionsList[$key->type][] = $key;
+       }
+
+
        $role_permissions = array_column(json_decode(json_encode(DB::table('permission_role')->where('role_id',$id)->get()),true),'role_id','permission_id');//查找出该角色拥有的
 
-       return view('admin.role.edit',compact('role','permissions','role_permissions'));
+       return view('admin.role.edit',compact('role','permissionsList','role_permissions','permissions'));
     }
 
     /**

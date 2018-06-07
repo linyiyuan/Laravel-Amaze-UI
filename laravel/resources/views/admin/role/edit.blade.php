@@ -77,22 +77,30 @@
                         </div>
                         @if($role->id != '1')
                             <div class="am-form-group">
-                                <label for="user-intro" class="am-u-sm-3 am-form-label">权限选择</label><br>
+                                <label for="user-intro" class="am-u-sm-3 am-form-label">权限选择</label></br>
                                 <div class="am-u-sm-9">
-                                      @if($role->id)
-                                          @foreach($permissions as $k)
-                                              <label class="am-checkbox-inline">
-                                                <input type="checkbox"  {{ array_key_exists($k->id,$role_permissions)?'checked':'' }}  name="permission[]" value="{{ $k->id}}" data-am-ucheck >{{ $k->display_name}}
-                                              </label>
-                                          @endforeach
-                                      @else
-                                         @foreach($permissions as $k)
-                                              <label class="am-checkbox-inline">
-                                                <input type="checkbox"  name="permission[]" value="{{ $k->id}}" data-am-ucheck >{{ $k->display_name}}
-                                              </label>
-                                          @endforeach
-                                      @endif
+                                    @foreach($permissionsList as $key => $val)
+                                        <div>
+                                           <span class="label label-sm label-success">{{ $key }}</span>
+                                        </div>
+                                        <span class="label label-sm">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                          @if($role->id)
+                                              @foreach($val as $k)
+                                                  <label class="am-checkbox-inline">
+                                                    <input type="checkbox"  {{ array_key_exists($k->id,$role_permissions)?'checked':'' }}  name="permission[]" value="{{ $k->id}}" data-am-ucheck >{{ $k->display_name}}
+                                                  </label>
+                                              @endforeach
+                                          @else
+                                             @foreach($val as $k)
+                                                  <label class="am-checkbox-inline">
+                                                    <input type="checkbox"  name="permission[]" value="{{ $k->id}}" data-am-ucheck >{{ $k->display_name}}
+                                                  </label>
+                                              @endforeach
+                                          @endif
+                                         </br>
+                                    @endforeach
                                 </div>
+
                             </div>
                         @endif
                         <div class="am-form-group">
