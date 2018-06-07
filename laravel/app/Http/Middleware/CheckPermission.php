@@ -16,9 +16,15 @@ class CheckPermission
      */
     public function handle($request, Closure $next)
     {
-        //获取当前路由
-        $route_name = Route::currentRouteName();
-        $route_name = substr($route_name,0,strpos($route_name, '.'));
+        //获取当前控制器
+        $actions=explode('\\', \Route::current()->getActionName());
+            //或$actions=explode('\\', \Route::currentRouteAction());
+        $modelName=$actions[count($actions)-2]=='Controllers'?null:$actions[count($actions)-2];
+        $func=explode('@', $actions[count($actions)-1]);
+        //获取当前控制器
+        $controllerName=$func[0];
+        //获取当前方法
+        $actionName=$func[1];
 
 
         //获取当前用户信息
@@ -30,7 +36,7 @@ class CheckPermission
         }
 
         //判断是否有权限
-        if ($user->can($route_name)) {
+        if ($user->can($controllerName)) {
             return $next($request);
         }
 
