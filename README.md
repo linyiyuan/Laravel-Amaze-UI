@@ -17,7 +17,7 @@
 
 ### 安装
 	1.git clone git@github.com:linyiyuan/Laravel-Amaze-UI.git
-	2.composer install
+	2.composer install 或者 composer install --ignore-platform-reqs
 	3.复制.env.example 到 .env 修改根目录下的.env文件 配置数据库
 	4.将.env 的APP_ENV设置为production
 	4.执行 php artisan key:generate , 生成随机 key
