@@ -1,8 +1,14 @@
 # Laravel-Amaze-UI
 
-	该项目基于Laravel 5.5开发，目前只开发了权限认证，登录验证，系统信息，操作日志
+	该项目基于Laravel 5.5开发
 	默认账号：admin@admin.com
 	默认密码：admin@admin.com
+	
+## 业务功能
+- 权限认证
+- 登录验证
+- 系统信息
+- 操作日志
 	
 ### 服务器配置拓展
 
@@ -29,7 +35,7 @@
 
 ### nginx配置
 	
-	server {
+    server {
     listen 8888;
     server_name web.blog.com;
     root /Library/WebServer/Documents/Laravel-Amaze-UI/laravel/public;
